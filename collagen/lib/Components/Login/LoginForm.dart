@@ -2,6 +2,7 @@ import 'package:collagen/Screens/Register/Registrasi.dart';
 import 'package:collagen/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignInForm extends StatefulWidget {
   @override
@@ -9,7 +10,6 @@ class SignInForm extends StatefulWidget {
 }
 
 class _SignInForm extends State<SignInForm> {
-
   final _formKey = GlobalKey<FormState>();
   String? username;
   String? password;
@@ -24,28 +24,52 @@ class _SignInForm extends State<SignInForm> {
     return Form(
       child: Column(
         children: [
+          Row(
+            children: [Text("Nama Pengguna")],
+          ),
           buildUserName(),
-          SizedBox(height:30),
+          SizedBox(height: 30),
+          Row(
+            children: [Text("Password")],
+          ),
           buildPassword(),
-          SizedBox(height:30),
+          SizedBox(height: 30),
+          Container(
+            width: 400,
+            height: 45,
+            child: TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Color(0xff3167FF),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              onPressed: () {},
+              child: Text(
+                "Login",
+                style: TextStyle(
+                  color: Color(0xffffffff),
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
           Row(
             children: [
               Spacer(),
               GestureDetector(
                 onTap: () {},
                 child: Text(
-                    "Lupa Kata Sandi?",
+                  "Lupa Kata Sandi?",
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: Color(0xff000000),
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
               )
             ],
-          ),
-          TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateColor.resolveWith((states) => kColorBlue),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-            ),
-            onPressed: () { },
-            child: Text('Login'),
           ),
           SizedBox(
             height: 200,
@@ -56,7 +80,10 @@ class _SignInForm extends State<SignInForm> {
                 onTap: () {
                   Navigator.pop(context, RegisterScreen.routeName);
                 },
-                child: Text("Belum memiliki akun? Daftar", style: TextStyle(decoration: TextDecoration.underline),),
+                child: Text(
+                  "Belum memiliki akun? Daftar",
+                  style: TextStyle(decoration: TextDecoration.underline),
+                ),
               )
             ],
           )
@@ -71,10 +98,9 @@ class _SignInForm extends State<SignInForm> {
       keyboardType: TextInputType.text,
       style: mTitleStyle,
       decoration: InputDecoration(
-        labelText: 'Nama Pengguna',
         hintText: 'Masukkan Nama Pengguna',
-        labelStyle: TextStyle(
-            color: focusNode.hasFocus ? mTitleColor : kPrimaryColor),
+        labelStyle:
+            TextStyle(color: focusNode.hasFocus ? mTitleColor : kPrimaryColor),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
@@ -86,7 +112,6 @@ class _SignInForm extends State<SignInForm> {
       obscureText: true,
       style: mTitleStyle,
       decoration: InputDecoration(
-        labelText: 'Kata Sandi',
         hintText: 'Masukkan Kata Sandi',
         labelStyle: TextStyle(
             color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
