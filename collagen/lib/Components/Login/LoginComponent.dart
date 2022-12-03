@@ -1,7 +1,6 @@
 import 'package:collagen/Components/Login/LoginForm.dart';
 import 'package:collagen/size_config.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class LoginComponent extends StatefulWidget {
   @override
@@ -26,13 +25,10 @@ class _LoginComponent extends State<LoginComponent> {
                 SizedBox(
                   height: SizeConfig.screenHeight = 0.05,
                 ),
-                SimpleShadow(
-                  // ignore: sort_child_properties_last
-                  child: Image.asset(
-                    "assets/images/signin_logo.png",
-                    height: 200,
-                    width: 252,
-                  ),
+                Image.asset(
+                  "assets/images/signin_logo.png",
+                  height: 200,
+                  width: 252,
                 ),
                 const SizedBox(
                   height: 20,
