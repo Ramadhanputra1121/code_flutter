@@ -14,6 +14,7 @@ class _SignupForm extends State<SignupForm> {
   String? telephone_number;
   String? email_mahasiswa;
   String? password;
+  bool? setuju = false;
 
   TextEditingController txtUserName = TextEditingController();
   TextEditingController txtTelephoneNumber = TextEditingController();
@@ -93,6 +94,18 @@ class _SignupForm extends State<SignupForm> {
                 ),
               ),
             ),
+          ),
+          Row(
+            children: [
+              Checkbox(
+                  value: setuju,
+                  onChanged: (value){
+                    setState((){
+                      setuju = value;
+                  });
+              }),
+              Text("Saya setuju dengan syarat.")
+            ],
           ),
           const SizedBox(
             height: 30,
