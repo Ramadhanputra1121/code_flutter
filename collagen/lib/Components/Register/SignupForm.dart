@@ -1,3 +1,4 @@
+import 'package:collagen/Screens/InputData/InputDataScreen.dart';
 import 'package:collagen/utils/constants.dart';
 import 'package:flutter/material.dart';
 import '../../Screens/Login/LoginScreen.dart';
@@ -84,7 +85,7 @@ class _SignupForm extends State<SignupForm> {
                 ),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, LoginScreen.routeName);
+                Navigator.pushNamed(context, InputDataScreen.routeName);
               },
               child: const Text(
                 "Daftar",
@@ -104,7 +105,13 @@ class _SignupForm extends State<SignupForm> {
                       setuju = value;
                   });
               }),
-              Text("Saya setuju dengan syarat.")
+              Expanded(
+                  child: Text(
+                    "Saya setuju dengan semua syarat dan ketentuan yang berlaku.",
+                    softWrap: true,
+                    maxLines: 2,
+                  )
+              )
             ],
           ),
           const SizedBox(
@@ -149,7 +156,7 @@ class _SignupForm extends State<SignupForm> {
       keyboardType: TextInputType.text,
       style: mTitleStyle,
       decoration: InputDecoration(
-        hintText: 'Masukkan Email Mahasiswa',
+        hintText: 'Contoh: xxxxx_1234@mhs.unj.ac.id',
         labelStyle: TextStyle(
             color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
         floatingLabelBehavior: FloatingLabelBehavior.always,
