@@ -1,6 +1,5 @@
-import 'package:collagen/Screens/Register/Registrasi.dart';
+import 'package:collagen/Screens/Register/SignupScreen.dart';
 import 'package:collagen/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -68,9 +67,10 @@ class _SignInForm extends State<SignInForm> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
+
           SizedBox(
             height: 200,
           ),
@@ -78,7 +78,7 @@ class _SignInForm extends State<SignInForm> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.pop(context, RegisterScreen.routeName);
+                  Navigator.pushNamed(context, SignupScreen.routeName);
                 },
                 child: Text(
                   "Belum memiliki akun? Daftar",
