@@ -1,4 +1,5 @@
 import 'package:collagen/Screens/Login/LoginScreen.dart';
+import 'package:collagen/SplashScreen_View.dart';
 import 'package:collagen/routes.dart';
 import 'package:collagen/theme.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +10,7 @@ void main() async {
     debugShowCheckedModeBanner: false,
     title: "Collagen",
     theme: theme(),
-    initialRoute: LoginScreen.routeName,
+    home: SplashScreenPage(),
     routes: routes,
   ));
 }
