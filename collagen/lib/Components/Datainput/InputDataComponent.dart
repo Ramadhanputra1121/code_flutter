@@ -21,17 +21,49 @@ class _InputDataComponent extends State<InputDataComponent> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                  height: SizeConfig.screenHeight = 0.05,
+                DefaultTextStyle.merge(
+                  style: const TextStyle(
+                      color: CupertinoColors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25
+                  ),
+                  child: Row(
+                    children: const [
+                      Text("Selamat Datang,"),
+                    ],
+                  ),
                 ),
-                Image.asset(
-                  "assets/images/Logo_Signup.png",
-                  height: 200,
-                  width: 252,
+                DefaultTextStyle.merge(
+                  style: const TextStyle(
+                      color: CupertinoColors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25
+                  ),
+                  child: Row(
+                    children: const [
+                      Text("Username")
+                    ],
+                  ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
+                Row(
+                  children: const [
+                    Expanded(
+                      child: Text(
+                        "Lengkapi biodata di bawah untuk menyelesaikan proses registrasi.",
+                        style: TextStyle(
+                            fontSize: 15
+                        ),
+                        softWrap: true,
+                        maxLines: 2,
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 20),
                 InputDataForm()
               ],
             ),

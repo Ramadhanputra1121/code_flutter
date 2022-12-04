@@ -9,21 +9,28 @@ class InputDataForm extends StatefulWidget {
   _InputDataForm createState() => _InputDataForm();
 }
 
-class _InputDataForm extends State<InputDataForm> {
-  String? namadepan;
-  String? namabelakang;
-  String? tanggallahir;
-  String? jeniskelamin;
-  String? univeritas;
+List<DropdownMenuItem<String>> get dropdownItems {
+  List<DropdownMenuItem<String>> menuItems = [
+    const DropdownMenuItem(child: Text("Male"), value: "Male"),
+    const DropdownMenuItem(child: Text("Female"), value: "Female"),
+    const DropdownMenuItem(child: Text("Other"), value: "Other"),
+  ];
+  return menuItems;
+}
 
-  TextEditingController txtNamaDepan = TextEditingController();
-  TextEditingController txtNamaBelakang = TextEditingController();
-  TextEditingController txtTanggalLahir = TextEditingController();
-  TextEditingController txtJenisKelamin = TextEditingController();
-  TextEditingController txtUniversitas = TextEditingController();
+class _InputDataForm extends State<InputDataForm> {
+
+  String? FirstName;
+  String? LastName;
+  DateTime? BornDate;
+  String? University;
+
+  TextEditingController txtFirstName = TextEditingController();
+  TextEditingController txtLastName = TextEditingController();
+  TextEditingController txtBornDate = TextEditingController();
+  TextEditingController txtUniversity = TextEditingController();
 
   FocusNode focusNode = FocusNode();
-  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +38,13 @@ class _InputDataForm extends State<InputDataForm> {
       child: Column(
         children: [
           buildFirstName(),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           buildLastName(),
-          SizedBox(height: 20),
-          buildBirthDate(),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           buildGender(),
-          SizedBox(height: 20),
-          buildUniversitas(),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
+          buildUniversity(),
+          const SizedBox(height: 20),
           Container(
             width: 400,
             height: 45,
@@ -54,7 +59,7 @@ class _InputDataForm extends State<InputDataForm> {
                 Navigator.pushNamed(context, LoginScreen.routeName);
               },
               child: const Text(
-                "Daftar",
+                "Simpan",
                 style: TextStyle(
                   color: Color(0xffffffff),
                   fontSize: 20,
@@ -72,11 +77,13 @@ class _InputDataForm extends State<InputDataForm> {
 
   TextFormField buildFirstName() {
     return TextFormField(
-      controller: txtNamaDepan,
+      controller: txtFirstName,
       keyboardType: TextInputType.text,
       style: mTitleStyle,
       decoration: InputDecoration(
         hintText: 'Nama Depan',
+        contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
         labelStyle:
         TextStyle(color: focusNode.hasFocus ? mTitleColor : kPrimaryColor),
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -86,55 +93,57 @@ class _InputDataForm extends State<InputDataForm> {
 
   TextFormField buildLastName() {
     return TextFormField(
-      controller: txtNamaBelakang,
+      controller: txtLastName,
       keyboardType: TextInputType.text,
       style: mTitleStyle,
       decoration: InputDecoration(
         hintText: 'Nama Belakang',
-        labelStyle: TextStyle(
-            color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
+        contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
+        labelStyle:
+        TextStyle(color: focusNode.hasFocus ? mTitleColor : kPrimaryColor),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
   }
 
-  TextFormField buildBirthDate() {
-    return TextFormField(
-      controller: txtTanggalLahir,
-      keyboardType: TextInputType.text,
-      style: mTitleStyle,
+  DropdownButtonFormField buildGender(){
+    return DropdownButtonFormField(
       decoration: InputDecoration(
-        hintText: 'Tanggal Lahir',
-        labelStyle: TextStyle(
-            color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        hintText: "Jenis Kelamin",
+        contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(width: 2),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(width: 2),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        filled: true,
+        fillColor: Colors.white,
       ),
+      iconSize: 30,
+      dropdownColor: Colors.white,
+      items: dropdownItems,
+      onChanged: (value) {
+        setState(() {
+        });
+      },
     );
   }
 
-  TextFormField buildGender() {
+  TextFormField buildUniversity() {
     return TextFormField(
-      controller: txtTanggalLahir,
-      keyboardType: TextInputType.text,
-      style: mTitleStyle,
-      decoration: InputDecoration(
-        hintText: 'Jenis Kelamin',
-        labelStyle: TextStyle(
-            color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-      ),
-    );
-  }
-
-  TextFormField buildUniversitas() {
-    return TextFormField(
-      controller: txtUniversitas,
+      controller: txtUniversity,
       keyboardType: TextInputType.text,
       style: mTitleStyle,
       decoration: InputDecoration(
         hintText: 'Universitas Asal',
-        labelStyle: TextStyle(
-            color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor),
+        contentPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
+        labelStyle:
+        TextStyle(color: focusNode.hasFocus ? mTitleColor : kPrimaryColor),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
