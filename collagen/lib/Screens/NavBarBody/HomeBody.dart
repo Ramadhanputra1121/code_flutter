@@ -50,6 +50,9 @@ class Post1 extends StatelessWidget {
               )
             ],
           ),
+          SizedBox(
+            height: 5,
+          ),
           Image.asset("assets/images/PostImage.png"),
           Divider(
             color: Colors.grey,
@@ -139,11 +142,12 @@ class Post2 extends StatelessWidget {
               )
             ],
           ),
+          
           Divider(
             color: Colors.grey,
             thickness: 2,
-            indent: 8,
-            endIndent: 8,
+            indent: 0,
+            endIndent: 0,
           ),
           Container(
             child: Row(

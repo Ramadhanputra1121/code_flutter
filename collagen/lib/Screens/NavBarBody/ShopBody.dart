@@ -14,7 +14,7 @@ class _ShopBody extends State<ShopBody> {
       body: GridView.builder(
           itemCount: 6,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 8.0 / 10.0,
+            childAspectRatio: 7.5 / 10.0,
             crossAxisCount: 2,
           ),
           itemBuilder: (BuildContext context, int index) {
@@ -38,27 +38,31 @@ class _ShopBody extends State<ShopBody> {
                           ),
                         )),
                         Padding(
-                            padding: EdgeInsets.only(left: 10.0),
+                            padding: EdgeInsets.only(left: 10.0, bottom: 6, top: 10),
                             child: Text(
                               "Rp. 9000",
                               style: TextStyle(fontSize: 16.0),
                             )),
                         Padding(
-                            padding: EdgeInsets.only(left: 10.0),
+                            padding: EdgeInsets.only(left: 10.0, bottom: 10),
                             child: Text(
                               "Ayam Jago + Kandang ",
                               style: TextStyle(fontSize: 16.0),
                             )),
                         Padding(
-                            padding: EdgeInsets.only(left: 10.0),
+                            padding: EdgeInsets.only(left: 10.0, bottom: 10),
                             child: Text(
                               "Depok",
                               style: TextStyle(fontSize: 16.0),
                             )),
 
                       ],
-                    )));
+                    )
+                )
+            );
           }),
+
     );
+
   }
 }
