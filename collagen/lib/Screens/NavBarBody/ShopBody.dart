@@ -38,15 +38,24 @@ class _ShopBody extends State<ShopBody> {
                           ),
                         )),
                         Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.only(left: 10.0),
                             child: Text(
-                              "Rp. 9000 ",
-                              style: TextStyle(fontSize: 18.0),
+                              "Rp. 9000",
+                              style: TextStyle(fontSize: 16.0),
                             )),
-                        Text(
-                          "Ayam Jago + Kandang",
-                          style: TextStyle(fontSize: 18.0),
-                        )
+                        Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              "Ayam Jago + Kandang ",
+                              style: TextStyle(fontSize: 16.0),
+                            )),
+                        Padding(
+                            padding: EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              "Depok",
+                              style: TextStyle(fontSize: 16.0),
+                            )),
+
                       ],
                     )));
           }),

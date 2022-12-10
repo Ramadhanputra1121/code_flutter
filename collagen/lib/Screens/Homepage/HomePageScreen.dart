@@ -1,3 +1,6 @@
+import 'package:collagen/Screens/NavBarBody/FriendBody.dart';
+import 'package:collagen/Screens/NavBarBody/HomeBody.dart';
+import 'package:collagen/Screens/NavBarBody/MoreBody.dart';
 import 'package:collagen/Screens/NavBarBody/ShopBody.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +14,11 @@ class HomePageScreen extends StatefulWidget {
 class _HomePageScreen extends State<HomePageScreen> {
   int index = 0;
   final pages = [
-    const Center(child: Text('Page 1', style: TextStyle(fontSize: 20),),),
-    const Center(child: Text('Page 2', style: TextStyle(fontSize: 20),),),
+    HomeBody(),
+    FriendBody(),
     const Center(child: Text('Page 3', style: TextStyle(fontSize: 20),),),
     ShopBody(),
-    const Center(child: Text('Page 5', style: TextStyle(fontSize: 20),),),
+    MoreBody(),
   ];
 
   @override
